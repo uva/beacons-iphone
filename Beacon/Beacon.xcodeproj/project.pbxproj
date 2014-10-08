@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D465D8BD19E0B70C0060CD4C /* BeaconViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D465D8BC19E0B70C0060CD4C /* BeaconViewController.m */; };
+		D457985D19E442EB0068356A /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D457985C19E442EB0068356A /* CoreBluetooth.framework */; };
+		D457986019E4618A0068356A /* BeaconsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D457985F19E4618A0068356A /* BeaconsTableViewController.m */; };
+		D48B6CE019E5AC0900037FE7 /* UserLocationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D48B6CDF19E5AC0900037FE7 /* UserLocationTableViewCell.m */; };
+		D49411B719E49EEC00EBCFA4 /* StudentsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D49411B619E49EEC00EBCFA4 /* StudentsTableViewController.m */; };
 		D499C13519E08D6500FAB1A2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D499C13419E08D6500FAB1A2 /* main.m */; };
 		D499C13819E08D6500FAB1A2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D499C13719E08D6500FAB1A2 /* AppDelegate.m */; };
 		D499C13B19E08D6500FAB1A2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D499C13A19E08D6500FAB1A2 /* ViewController.m */; };
@@ -27,8 +30,6 @@
 		D499C16B19E0946F00FAB1A2 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D499C16A19E0946F00FAB1A2 /* SystemConfiguration.framework */; };
 		D499C16E19E0A80800FAB1A2 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D499C16C19E0A80800FAB1A2 /* Bolts.framework */; };
 		D499C16F19E0A80800FAB1A2 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D499C16D19E0A80800FAB1A2 /* Parse.framework */; };
-		D499C17319E0A87200FAB1A2 /* BeaconsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D499C17219E0A87200FAB1A2 /* BeaconsTableViewController.m */; };
-		D499C17619E0A8BA00FAB1A2 /* Beacon.m in Sources */ = {isa = PBXBuildFile; fileRef = D499C17519E0A8BA00FAB1A2 /* Beacon.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,8 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D465D8BB19E0B70C0060CD4C /* BeaconViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconViewController.h; sourceTree = "<group>"; };
-		D465D8BC19E0B70C0060CD4C /* BeaconViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconViewController.m; sourceTree = "<group>"; };
+		D457985C19E442EB0068356A /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		D457985E19E4618A0068356A /* BeaconsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconsTableViewController.h; sourceTree = "<group>"; };
+		D457985F19E4618A0068356A /* BeaconsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconsTableViewController.m; sourceTree = "<group>"; };
+		D48B6CDE19E5AC0900037FE7 /* UserLocationTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserLocationTableViewCell.h; sourceTree = "<group>"; };
+		D48B6CDF19E5AC0900037FE7 /* UserLocationTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserLocationTableViewCell.m; sourceTree = "<group>"; };
+		D49411B519E49EEC00EBCFA4 /* StudentsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StudentsTableViewController.h; sourceTree = "<group>"; };
+		D49411B619E49EEC00EBCFA4 /* StudentsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StudentsTableViewController.m; sourceTree = "<group>"; };
 		D499C12F19E08D6500FAB1A2 /* Beacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D499C13319E08D6500FAB1A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D499C13419E08D6500FAB1A2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,10 +75,6 @@
 		D499C16A19E0946F00FAB1A2 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D499C16C19E0A80800FAB1A2 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		D499C16D19E0A80800FAB1A2 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
-		D499C17119E0A87200FAB1A2 /* BeaconsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconsTableViewController.h; sourceTree = "<group>"; };
-		D499C17219E0A87200FAB1A2 /* BeaconsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconsTableViewController.m; sourceTree = "<group>"; };
-		D499C17419E0A8BA00FAB1A2 /* Beacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Beacon.h; sourceTree = "<group>"; };
-		D499C17519E0A8BA00FAB1A2 /* Beacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Beacon.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D457985D19E442EB0068356A /* CoreBluetooth.framework in Frameworks */,
 				D499C16B19E0946F00FAB1A2 /* SystemConfiguration.framework in Frameworks */,
 				D499C16919E0946700FAB1A2 /* StoreKit.framework in Frameworks */,
 				D499C16719E0946000FAB1A2 /* Security.framework in Frameworks */,
@@ -131,12 +134,12 @@
 				D499C13919E08D6500FAB1A2 /* ViewController.h */,
 				D499C13A19E08D6500FAB1A2 /* ViewController.m */,
 				D499C13C19E08D6500FAB1A2 /* Main.storyboard */,
-				D499C17119E0A87200FAB1A2 /* BeaconsTableViewController.h */,
-				D499C17219E0A87200FAB1A2 /* BeaconsTableViewController.m */,
-				D465D8BB19E0B70C0060CD4C /* BeaconViewController.h */,
-				D465D8BC19E0B70C0060CD4C /* BeaconViewController.m */,
-				D499C17419E0A8BA00FAB1A2 /* Beacon.h */,
-				D499C17519E0A8BA00FAB1A2 /* Beacon.m */,
+				D48B6CDE19E5AC0900037FE7 /* UserLocationTableViewCell.h */,
+				D48B6CDF19E5AC0900037FE7 /* UserLocationTableViewCell.m */,
+				D49411B519E49EEC00EBCFA4 /* StudentsTableViewController.h */,
+				D49411B619E49EEC00EBCFA4 /* StudentsTableViewController.m */,
+				D457985E19E4618A0068356A /* BeaconsTableViewController.h */,
+				D457985F19E4618A0068356A /* BeaconsTableViewController.m */,
 				D499C13F19E08D6500FAB1A2 /* Images.xcassets */,
 				D499C14119E08D6500FAB1A2 /* LaunchScreen.xib */,
 				D499C17019E0A80F00FAB1A2 /* Frameworks */,
@@ -174,6 +177,7 @@
 		D499C17019E0A80F00FAB1A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D457985C19E442EB0068356A /* CoreBluetooth.framework */,
 				D499C16A19E0946F00FAB1A2 /* SystemConfiguration.framework */,
 				D499C16819E0946700FAB1A2 /* StoreKit.framework */,
 				D499C16619E0946000FAB1A2 /* Security.framework */,
@@ -240,6 +244,12 @@
 				TargetAttributes = {
 					D499C12E19E08D6500FAB1A2 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = CQ74745625;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					D499C14719E08D6500FAB1A2 = {
 						CreatedOnToolsVersion = 6.0;
@@ -292,11 +302,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D499C13B19E08D6500FAB1A2 /* ViewController.m in Sources */,
-				D499C17319E0A87200FAB1A2 /* BeaconsTableViewController.m in Sources */,
-				D465D8BD19E0B70C0060CD4C /* BeaconViewController.m in Sources */,
-				D499C17619E0A8BA00FAB1A2 /* Beacon.m in Sources */,
+				D457986019E4618A0068356A /* BeaconsTableViewController.m in Sources */,
+				D49411B719E49EEC00EBCFA4 /* StudentsTableViewController.m in Sources */,
 				D499C13819E08D6500FAB1A2 /* AppDelegate.m in Sources */,
 				D499C13519E08D6500FAB1A2 /* main.m in Sources */,
+				D48B6CE019E5AC0900037FE7 /* UserLocationTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +428,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -425,6 +437,7 @@
 				INFOPLIST_FILE = Beacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -432,6 +445,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -439,6 +454,7 @@
 				INFOPLIST_FILE = Beacon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

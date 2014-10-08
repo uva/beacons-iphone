@@ -7,9 +7,26 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+#import <Parse/Parse.h>
 
-@interface ViewController : UIViewController
 
+@interface ViewController : UIViewController <CLLocationManagerDelegate>
+
+@property (strong, nonatomic) CLBeaconRegion *beaconRegion;
+@property (strong, nonatomic) CLLocationManager *locationManager;
+
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+
+@property CLBeacon *beacon;
+@property NSString *userName;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+
+- (IBAction)userSelected:(UISegmentedControl *)sender;
+
+- (IBAction)submitLocation:(UIButton *)sender;
+
+- (IBAction)userAskedForHelp:(UIButton *)sender;
 
 @end
 

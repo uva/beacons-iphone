@@ -2,13 +2,11 @@
 //  BeaconsTableViewController.m
 //  Beacon
 //
-//  Created by Rob Kunst on 05/10/14.
+//  Created by Rob Kunst on 07/10/14.
 //  Copyright (c) 2014 Rob Kunst. All rights reserved.
 //
 
 #import "BeaconsTableViewController.h"
-#import "Beacon.h"
-#import <Parse/Parse.h>
 
 @interface BeaconsTableViewController ()
 
@@ -16,40 +14,19 @@
 
 @implementation BeaconsTableViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.beacons = [[NSMutableArray alloc] init];
-
-    Beacon *beacon1 = [[Beacon alloc] init];
-    Beacon *beacon2 = [[Beacon alloc] init];
-    Beacon *beacon3 = [[Beacon alloc] init];
-    
-    beacon1.uuid = @"testuuidbeacon1";
-    beacon2.uuid = @"testuuidbeacon2";
-    beacon3.uuid = @"testuuidbeacon3";
-    
-    beacon1.beaconDescription = @"This is beacon 1";
-    beacon2.beaconDescription = @"This is beacon 2";
-    beacon3.beaconDescription = @"This is beacon 3";
     
     
-    [self.beacons addObject:beacon1];
-    [self.beacons addObject:beacon2];
-    [self.beacons addObject:beacon3];
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.delegate = self;
     
-    PFQuery *query = [PFQuery queryWithClassName:@"Beacons"];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        NSLog(@"%@",objects);
-        for(PFObject *object in objects){
-            Beacon *beacon = [[Beacon alloc] init];
-            beacon.beaconDescription = object[@"description"];
-            beacon.uuid = object[@"uuid"];
-            [self.beacons addObject:beacon];
-        }
-        [self.tableView reloadData];
-
-    }];
+    [self.locationManager requestAlwaysAuthorization];
+    [self.locationManager requestWhenInUseAuthorization];
+    
+    [self initRegion];
+    
+    [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
     
     
     // Uncomment the following line to preserve selection between presentations.
@@ -76,16 +53,36 @@
     return self.beacons.count;
 }
 
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-    Beacon *beacon = [self.beacons objectAtIndex:indexPath.row];
-    cell.textLabel.text = beacon.beaconDescription;
-    cell.detailTextLabel.text = beacon.uuid;
+    
+    CLBeacon *beacon = [[CLBeacon alloc] init];
+    beacon = [self.beacons objectAtIndex:indexPath.row];
+    
+    NSString *majMin = [NSString stringWithFormat:@"Major: %@ Minor: %@", beacon.major, beacon.minor];
+    NSString *uuid = beacon.proximityUUID.UUIDString;
+    NSString *proximity;
+    if (beacon.proximity == CLProximityUnknown) {
+            proximity = @"Unknown Proximity";
+        } else if (beacon.proximity == CLProximityImmediate) {
+            proximity = @"Immediate";
+        } else if (beacon.proximity == CLProximityNear) {
+            proximity = @"Near";
+        } else if (beacon.proximity == CLProximityFar) {
+            proximity = @"Far";
+        }
+        NSString *rssi = [NSString stringWithFormat:@"%li", (long)beacon.rssi];
+    cell.textLabel.text = uuid;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@, %@, %@",majMin, proximity, rssi];
+    
+    //    self.majorLabel.text = [NSString stringWithFormat:@"%@", beacon.major];
+    //    self.minorLabel.text = [NSString stringWithFormat:@"%@", beacon.minor];
+    
     // Configure the cell...
     
     return cell;
 }
-
 
 /*
 // Override to support conditional editing of the table view.
@@ -130,5 +127,53 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma mark Beacon methods
+
+- (void)locationManager:(CLLocationManager *)manager didStartMonitoringForRegion:(CLRegion *)region {
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+}
+
+-(void)initRegion{
+    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:@"EBEFD083-70A2-47C8-9837-E7B5634DF524"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"minprog"];
+    [self.locationManager startMonitoringForRegion:self.beaconRegion];
+}
+
+
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    [self.locationManager startRangingBeaconsInRegion:self.beaconRegion];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    [self.locationManager stopRangingBeaconsInRegion:self.beaconRegion];
+    //self.statusLabel.text = @"No";
+}
+
+-(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region {
+    
+    CLBeacon *beacon = [[CLBeacon alloc] init];
+    beacon = [beacons lastObject];
+    
+    self.beacons = beacons;
+    [self.tableView reloadData];
+    
+    //self.statusLabel.text = @"Yes";
+    //    self.proximityUUIDLabel.text = beacon.proximityUUID.UUIDString;
+    //    self.majorLabel.text = [NSString stringWithFormat:@"%@", beacon.major];
+    //    self.minorLabel.text = [NSString stringWithFormat:@"%@", beacon.minor];
+    //    self.accuracyLabel.text = [NSString stringWithFormat:@"%f", beacon.accuracy];
+    //    if (beacon.proximity == CLProximityUnknown) {
+    //        self.distanceLabel.text = @"Unknown Proximity";
+    //    } else if (beacon.proximity == CLProximityImmediate) {
+    //        self.distanceLabel.text = @"Immediate";
+    //    } else if (beacon.proximity == CLProximityNear) {
+    //        self.distanceLabel.text = @"Near";
+    //    } else if (beacon.proximity == CLProximityFar) {
+    //        self.distanceLabel.text = @"Far";
+    //    }
+    //    self.rssiLabel.text = [NSString stringWithFormat:@"%i", beacon.rssi];
+}
 
 @end
