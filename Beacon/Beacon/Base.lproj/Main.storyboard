@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ozB-ah-Ypw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A386a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ozB-ah-Ypw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Users-->
         <scene sceneID="CO5-b2-hgj">
             <objects>
                 <tableViewController id="a5Q-JB-d6g" customClass="StudentsTableViewController" sceneMemberID="viewController">
@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <toolbar key="tableHeaderView" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="sSC-cG-1g1">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                             <items>
                                 <barButtonItem title="Item" id="QcA-Ed-8Ww"/>
@@ -55,13 +55,13 @@
                             <outlet property="delegate" destination="a5Q-JB-d6g" id="ycP-ER-JqV"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="PjZ-1Z-6cE"/>
+                    <tabBarItem key="tabBarItem" title="Users" id="PjZ-1Z-6cE"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOP-rh-5RO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1416" y="311.25"/>
         </scene>
-        <!--Item-->
+        <!--Start-->
         <scene sceneID="jPa-Qg-e2K">
             <objects>
                 <viewController id="AR5-si-Lxj" sceneMemberID="viewController">
@@ -70,6 +70,7 @@
                         <viewControllerLayoutGuide type="bottom" id="eEo-iT-Euq"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ved-s8-ogW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xEW-b4-Rgb">
@@ -97,7 +98,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="qBW-WM-Juq"/>
+                    <tabBarItem key="tabBarItem" title="Start" id="qBW-WM-Juq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izE-a5-S5d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -244,14 +245,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="AR5-si-Lxj" kind="relationship" relationship="viewControllers" id="Eny-Qb-0Cj"/>
                         <segue destination="a5Q-JB-d6g" kind="relationship" relationship="viewControllers" id="iLJ-aL-FsG"/>
                         <segue destination="XHr-WW-M1B" kind="relationship" relationship="viewControllers" id="epj-pM-Ojl"/>
-                        <segue destination="AR5-si-Lxj" kind="relationship" relationship="viewControllers" id="Eny-Qb-0Cj"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wC-Np-96D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-213" y="-487.5"/>
+            <point key="canvasLocation" x="-366" y="-426"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="OYi-e6-VeV">
@@ -328,28 +329,34 @@
                                     <action selector="submitLocation:" destination="wXC-bq-pBA" eventType="touchUpInside" id="w23-ek-xrZ"/>
                                 </connections>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GKb-bS-ynU">
+                                <rect key="frame" x="-25" y="-15" width="51" height="31"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="141" y="322" width="51" height="31"/>
+                                </variation>
+                                <connections>
+                                    <action selector="helpSwitchChanged:" destination="wXC-bq-pBA" eventType="valueChanged" id="PRX-1G-laa"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ask for Help:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ks-MH-d1i">
+                                <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="327" width="100" height="21"/>
+                                </variation>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUu-6e-7UA">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="409" width="35" height="30"/>
+                                    <rect key="frame" x="16" y="385" width="35" height="30"/>
                                 </variation>
                                 <connections>
                                     <segue destination="ozB-ah-Ypw" kind="show" id="7wB-uJ-mbb"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HC4-Wd-pvc">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Ask for Help">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="16" y="323" width="85" height="30"/>
-                                </variation>
-                                <connections>
-                                    <action selector="userAskedForHelp:" destination="wXC-bq-pBA" eventType="touchUpInside" id="SEF-qC-a0b"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -359,8 +366,9 @@
                                 <exclude reference="Amu-Ge-YkT"/>
                                 <exclude reference="Sl6-Fu-bRI"/>
                                 <exclude reference="rs8-pE-SiH"/>
+                                <exclude reference="GKb-bS-ynU"/>
+                                <exclude reference="8Ks-MH-d1i"/>
                                 <exclude reference="DUu-6e-7UA"/>
-                                <exclude reference="HC4-Wd-pvc"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -368,13 +376,15 @@
                                 <include reference="Amu-Ge-YkT"/>
                                 <include reference="Sl6-Fu-bRI"/>
                                 <include reference="rs8-pE-SiH"/>
+                                <include reference="GKb-bS-ynU"/>
+                                <include reference="8Ks-MH-d1i"/>
                                 <include reference="DUu-6e-7UA"/>
-                                <include reference="HC4-Wd-pvc"/>
                             </mask>
                         </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Options" id="Z5L-ms-Ohd"/>
                     <connections>
+                        <outlet property="helpSwitch" destination="GKb-bS-ynU" id="rK2-G7-fks"/>
                         <outlet property="segmentedControl" destination="Sl6-Fu-bRI" id="8vu-c3-cY6"/>
                         <outlet property="statusLabel" destination="uqR-B7-OAb" id="RIe-1w-gmE"/>
                     </connections>

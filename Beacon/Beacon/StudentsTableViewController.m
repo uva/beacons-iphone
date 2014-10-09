@@ -70,8 +70,10 @@
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
     [dateFormat setDateFormat:@"EEE, MMM d, h:mm a"];
     cell.detailTextLabel.text = [NSString stringWithFormat:@"Locatie: %@, %@",object[@"minor"], [dateFormat stringFromDate:updated]];
-    if(object[@"needsHelp"]){
+    if([object[@"needsHelp"] isEqual:[NSNumber numberWithBool:YES]]){
         [cell setAccessoryType:UITableViewCellAccessoryDetailButton];
+    } else{
+        [cell setAccessoryType:UITableViewCellAccessoryNone];
     }
     //cell.imageView.image = [UIImage imageNamed:@"Question.png"];
     return cell;

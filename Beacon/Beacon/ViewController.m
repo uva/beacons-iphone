@@ -25,18 +25,22 @@
     [self locationManager:self.locationManager didStartMonitoringForRegion:self.beaconRegion];
     
     self.userName = @"user1";
+    [self loadState];
     
-//    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
-//    [query whereKey:@"userName" equalTo:@"user1"];
-//    NSArray *users = [query findObjects];
-//    self.user = [users firstObject];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-//        self.user = [objects firstObject];
-//    }];
-
-
 }
 
+-(void)loadState{
+    PFQuery *query = [PFQuery queryWithClassName:@"Users"];
+    [query whereKey:@"username" equalTo:self.userName];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        PFObject *user = [objects firstObject];
+        if([user[@"needsHelp"] isEqual:[NSNumber numberWithBool:YES]]){
+            [self.helpSwitch setOn:YES animated:YES];
+        } else{
+            [self.helpSwitch setOn:NO animated:NO];
+        }
+    }];
+}
 
 
 -(void)sendLocationToDatabase{
@@ -146,12 +150,8 @@
             self.userName = @"user3";
             break;
     }
-    NSLog(self.userName);
-}
-
-- (IBAction)userNameChanged:(UITextField *)sender {
-    self.userName = sender.text;
-    NSLog(@"Username: %@", self.userName);
+    [self loadState];
+    //NSLog(self.userName);
 }
 
 - (IBAction)submitLocation:(UIButton *)sender {
@@ -159,13 +159,16 @@
     NSLog(@"submitted location");
 }
 
-- (IBAction)userAskedForHelp:(UIButton *)sender {
-    
+- (IBAction)helpSwitchChanged:(UISwitch *)sender {
     PFQuery *query = [PFQuery queryWithClassName:@"Users"];
     [query whereKey:@"username" equalTo:self.userName];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         PFObject *user = [objects firstObject];
-        user[@"needsHelp"] = @YES;
+        if([sender isOn]){
+            user[@"needsHelp"] = [NSNumber numberWithBool:YES];
+        } else{
+            user[@"needsHelp"] = [NSNumber numberWithBool:NO];
+        }
         [user saveInBackground];
     }];
 }

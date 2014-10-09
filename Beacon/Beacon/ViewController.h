@@ -21,12 +21,12 @@
 @property CLBeacon *beacon;
 @property NSString *userName;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
+@property (weak, nonatomic) IBOutlet UISwitch *helpSwitch;
 
 - (IBAction)userSelected:(UISegmentedControl *)sender;
 
 - (IBAction)submitLocation:(UIButton *)sender;
 
-- (IBAction)userAskedForHelp:(UIButton *)sender;
-
+- (IBAction)helpSwitchChanged:(UISwitch *)sender;
 @end
 
