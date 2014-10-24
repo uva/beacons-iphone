@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ConnectionManager.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, ConnectionManagerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 
 @end
 

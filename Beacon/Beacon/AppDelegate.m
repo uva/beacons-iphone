@@ -7,22 +7,25 @@
 //
 
 #import "AppDelegate.h"
-#import <Parse/Parse.h>
+#import "StartViewController.h"
+#import "LoginViewController.h"
 
 @interface AppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation AppDelegate 
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [Parse setApplicationId:@"ZHhb4t1kowTwzh7g2r7C8oOioXGBhxvs1FLFVfzS"
-                  clientKey:@"oflciWgfaaCSpqkYsW7EDn851pT68icLoneadpdH"];
-    
-    
-    // Override point for customization after application launch.
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *token = [defaults valueForKey:@"token"];
+    if (!token) {
+        UIStoryboard *storyboard = [[self.window rootViewController] storyboard];
+        LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        [self.window setRootViewController:loginViewController];
+    }
     return YES;
 }
 
@@ -37,6 +40,7 @@
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
+    
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
 }
 
