@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.connectionManager = [[ConnectionManager alloc] init];
     self.connectionManager.delegate = self;
     [self.pinTextField becomeFirstResponder];
@@ -26,36 +27,22 @@
     [super didReceiveMemoryWarning];
 }
 
--(void)getTokenWithPin:(NSString *)pin{
+- (IBAction)submitPin:(UIButton *)sender {
+    [self.pinTextField endEditing:YES];
     [ProgressHUD show:@"Please wait" Interaction:NO];
+    NSString *pin = self.pinTextField.text;
     [self.connectionManager requestTokenWithPin:pin];
 }
 
-
 #pragma mark - ConnectionManagerDelegate
 
+//If token is recieved, save token to userDefaults and go to the starting view controller.
 -(void)didGetToken:(NSString *)token{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:token forKey:@"token"];
     [defaults synchronize];
     
     [self performSegueWithIdentifier:@"startViewSegue" sender:self];
-    
-    //[self.connectionManager getRoleWithToken:token];
-}
-
-//-(void)didGetRole:(NSString *)role{
-//    if([role isEqualToString:@"student"]){
-//        [self performSegueWithIdentifier: @"studentSegue" sender: self];
-//    } else if([role isEqualToString:@"assistant"]){
-//        [self performSegueWithIdentifier:@"studentSegue" sender:self];
-//    }
-//}
-
-- (IBAction)submitPin:(UIButton *)sender {
-    [self.pinTextField endEditing:YES];
-    NSString *pin = self.pinTextField.text;
-    [self getTokenWithPin:pin];
 }
 
 - (void)didGetError{

@@ -19,26 +19,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Set title for navigation bar
+    self.title = @"Assistants";
+    
+    //Add refresh control to tableView to reload data with a pulldown.
     self.refreshControl = [[UIRefreshControl alloc]init];
     [self.tableView addSubview:self.refreshControl];
     [self.refreshControl addTarget:self action:@selector(refreshTable) forControlEvents:UIControlEventValueChanged];
     
-    self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+    //Setup the connection manager
     self.connectionManager = [[ConnectionManager alloc] init];
     self.connectionManager.delegate = self;
     self.assistantList = [[NSArray alloc] init];
-    [self loadData];
-}
-
-- (void)refreshTable {
-    [self.refreshControl endRefreshing];
-    [self loadData];
-}
-
--(void)loadData{
     [self.connectionManager getAssistantList];
 }
 
+//Reload data when refreshControl is dragged down.
+- (void)refreshTable {
+    [self.refreshControl endRefreshing];
+    [self.connectionManager getAssistantList];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -61,6 +61,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
+    //Retrieve data from the user and setup the tableview cell.
     NSDictionary *user = [self.assistantList objectAtIndex:indexPath.row];
     NSString *name = [user valueForKey:@"name"];
     NSString *minor = [user valueForKey:@"loca"];
@@ -75,6 +76,7 @@
 
 #pragma mark - ConnectionManager delegate methods
 
+//Update tableView when data is loaded
 -(void)didGetAssistantList:(NSArray *)assistantList{
     dispatch_async(dispatch_get_main_queue(), ^{
         self.assistantList = assistantList;

@@ -16,6 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Set title for navigation bar
+    self.title = @"Settings";
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,4 +31,5 @@
     [defaults removeObjectForKey:@"token"];
     [self performSegueWithIdentifier:@"loginSegue" sender:self];
 }
+
 @end

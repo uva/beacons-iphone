@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @protocol ConnectionManagerDelegate <NSObject>
-
+@optional
 - (void)didGetToken:(NSString*)token;
 - (void)didGetRole:(NSString *)role;
 - (void)didGetStudentList:(NSArray *)studentList;
@@ -21,6 +21,7 @@
 @interface ConnectionManager : NSObject  <NSURLSessionDataDelegate, NSURLSessionDelegate>
 
 @property (weak, nonatomic) id <ConnectionManagerDelegate> delegate;
+@property (strong, nonatomic) NSString *token;
 
 -(void)submitLocationWithMajor:(int)major andMinor:(int)minor;
 -(void)getRoleWithToken:(NSString *)token;

@@ -36,7 +36,6 @@
 		D4EA956F19EED2E300E9564A /* StudentListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EA956E19EED2E300E9564A /* StudentListTableViewController.m */; };
 		D4EA957219EED70D00E9564A /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EA957119EED70D00E9564A /* SettingsViewController.m */; };
 		D4F6BEAD19ED302600ACFF14 /* StartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F6BEAC19ED302600ACFF14 /* StartViewController.m */; };
-		D4FBB3AA19F9E3A400E4CAD4 /* BeaconManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4FBB3A919F9E3A400E4CAD4 /* BeaconManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +93,6 @@
 		D4EA957119EED70D00E9564A /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		D4F6BEAB19ED302600ACFF14 /* StartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartViewController.h; sourceTree = "<group>"; };
 		D4F6BEAC19ED302600ACFF14 /* StartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartViewController.m; sourceTree = "<group>"; };
-		D4FBB3A819F9E3A400E4CAD4 /* BeaconManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BeaconManager.h; sourceTree = "<group>"; };
-		D4FBB3A919F9E3A400E4CAD4 /* BeaconManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BeaconManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,8 +221,6 @@
 		D4FBB3AB19F9E3B000E4CAD4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				D4FBB3A819F9E3A400E4CAD4 /* BeaconManager.h */,
-				D4FBB3A919F9E3A400E4CAD4 /* BeaconManager.m */,
 				D44D436B19EDE0160042FF69 /* ConnectionManager.h */,
 				D44D436C19EDE0160042FF69 /* ConnectionManager.m */,
 			);
@@ -315,7 +310,7 @@
 					};
 				};
 			};
-			buildConfigurationList = D499C12A19E08D6500FAB1A2 /* Build configuration list for PBXProject "Beacon" */;
+			buildConfigurationList = D499C12A19E08D6500FAB1A2 /* Build configuration list for PBXProject "beacon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -362,7 +357,6 @@
 			files = (
 				D4EA956F19EED2E300E9564A /* StudentListTableViewController.m in Sources */,
 				D44D436D19EDE0160042FF69 /* ConnectionManager.m in Sources */,
-				D4FBB3AA19F9E3A400E4CAD4 /* BeaconManager.m in Sources */,
 				D457986019E4618A0068356A /* BeaconsTableViewController.m in Sources */,
 				D4EA956919EEB96700E9564A /* StudentMainViewController.m in Sources */,
 				D4EA956619EEAC5200E9564A /* LoginViewController.m in Sources */,
@@ -561,7 +555,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D499C12A19E08D6500FAB1A2 /* Build configuration list for PBXProject "Beacon" */ = {
+		D499C12A19E08D6500FAB1A2 /* Build configuration list for PBXProject "beacon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D499C15019E08D6500FAB1A2 /* Debug */,
