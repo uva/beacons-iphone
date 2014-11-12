@@ -29,7 +29,7 @@
 - (IBAction)signOut:(UIButton *)sender {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"token"];
-    [self performSegueWithIdentifier:@"loginSegue" sender:self];
+    [self performSegueWithIdentifier:@"menuUnwind" sender:self];
 }
 
 @end

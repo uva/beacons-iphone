@@ -11,9 +11,19 @@
 
 @implementation StartViewController
 
-- (void)viewDidLoad {
+- (IBAction) restart:(UIStoryboardSegue *)segue
+{
+    [self retrieveRole];
+}
+
+- (void) viewDidLoad
+{
     [super viewDidLoad];
-    
+    [self retrieveRole];
+}
+
+- (void) retrieveRole
+{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     self.token = [defaults valueForKey:@"token"];
     self.connectionManager = [[ConnectionManager alloc] init];
@@ -21,22 +31,23 @@
     [self.connectionManager getRoleWithToken:self.token];
 }
 
--(void)didGetRole:(NSString *)role{
+- (void) didGetRole:(NSString *)role
+{
     if([role isEqualToString:@"student"]){
         NSLog(@"Student");
-        [self performSegueWithIdentifier:@"studentSegue" sender:self];
+        [self performSegueWithIdentifier:@"menuSegue" sender:self];
     } else if([role isEqualToString:@"assistant"]){
         NSLog(@"Assistant");
-        [self performSegueWithIdentifier:@"assistantSegue" sender:self];
+        [self performSegueWithIdentifier:@"menuSegue" sender:self];
     } else{
         NSLog(@"Login");
         [self performSegueWithIdentifier:@"loginSegue" sender:self];
     }
 }
 
--(void)didGetError{
+- (void) didGetError
+{
     [self performSegueWithIdentifier:@"loginSegue" sender:self];
 }
-
 
 @end

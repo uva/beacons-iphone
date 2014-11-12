@@ -29,7 +29,7 @@
 
 - (IBAction)submitPin:(UIButton *)sender {
     [self.pinTextField endEditing:YES];
-    [ProgressHUD show:@"Please wait" Interaction:NO];
+    //[ProgressHUD show:@"Please wait" Interaction:NO];
     NSString *pin = self.pinTextField.text;
     [self.connectionManager requestTokenWithPin:pin];
 }
@@ -42,7 +42,7 @@
     [defaults setObject:token forKey:@"token"];
     [defaults synchronize];
     
-    [self performSegueWithIdentifier:@"startViewSegue" sender:self];
+    [self performSegueWithIdentifier:@"loginUnwind" sender:self];
 }
 
 - (void)didGetError{

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="7o4-Uq-RsT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A388b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ozB-ah-Ypw">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -66,13 +66,13 @@
                     </view>
                     <connections>
                         <outlet property="pinTextField" destination="Cba-xr-oKq" id="PQM-3F-bB2"/>
-                        <segue destination="ozB-ah-Ypw" kind="show" identifier="startViewSegue" id="kxf-sa-1pl"/>
-                        <segue destination="7o4-Uq-RsT" kind="show" identifier="assistantSegue" id="02O-O3-msx"/>
+                        <segue destination="vTf-ot-GmY" kind="unwind" identifier="loginUnwind" unwindAction="restart:" id="Y7a-zN-VLQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmR-za-rX3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vTf-ot-GmY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-4711" y="-4817"/>
+            <point key="canvasLocation" x="-4247" y="-4851"/>
         </scene>
         <!--Start View Controller-->
         <scene sceneID="t7R-PK-v4V">
@@ -87,19 +87,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ycc-EV-hbz">
-                                <rect key="frame" x="330" y="238" width="20" height="20"/>
+                                <rect key="frame" x="208" y="156" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="Bbb-vo-ybp" kind="show" identifier="loginSegue" id="bLD-Ck-JiT"/>
-                        <segue destination="7o4-Uq-RsT" kind="show" identifier="studentSegue" id="Ols-Km-7iU"/>
+                        <segue destination="Bbb-vo-ybp" kind="presentation" identifier="loginSegue" id="bLD-Ck-JiT"/>
+                        <segue destination="7o4-Uq-RsT" kind="presentation" identifier="menuSegue" id="Ols-Km-7iU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WeA-UZ-f65" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5414" y="-4017"/>
+            <point key="canvasLocation" x="-4980" y="-4437"/>
         </scene>
         <!--Student-->
         <scene sceneID="J9a-Sp-vPd">
@@ -126,7 +126,7 @@
         <scene sceneID="dQP-aL-9ih">
             <objects>
                 <tableViewController title="Assistants" id="EDy-LI-rjv" customClass="AssistantListTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vPk-w8-QLD">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="vPk-w8-QLD">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -321,10 +321,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="Settings" id="g0K-Z0-pxc"/>
                     <connections>
-                        <segue destination="Bbb-vo-ybp" kind="show" identifier="loginSegue" id="JVw-mm-V77"/>
+                        <segue destination="mIQ-zl-OiO" kind="unwind" identifier="menuUnwind" unwindAction="restart:" id="CMg-BZ-ANn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VrK-9w-8s3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mIQ-zl-OiO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-3692" y="-3165"/>
         </scene>
@@ -334,8 +335,4 @@
         <image name="Settings" width="28" height="28"/>
         <image name="Students" width="26" height="26"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="Ols-Km-7iU"/>
-        <segue reference="JVw-mm-V77"/>
-    </inferredMetricsTieBreakers>
 </document>
