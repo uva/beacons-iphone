@@ -26,8 +26,10 @@
         NSLog(@"Student");
         [self performSegueWithIdentifier:@"studentSegue" sender:self];
     } else if([role isEqualToString:@"assistant"]){
+        NSLog(@"Assistant");
         [self performSegueWithIdentifier:@"assistantSegue" sender:self];
     } else{
+        NSLog(@"Login");
         [self performSegueWithIdentifier:@"loginSegue" sender:self];
     }
 }

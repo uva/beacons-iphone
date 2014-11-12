@@ -149,7 +149,7 @@
     CLBeacon *beacon = [[CLBeacon alloc] init];
     beacon = [beacons lastObject];
     
-    self.beacons = beacons;
+    self.beacons = [NSMutableArray arrayWithArray:beacons];
     [self.tableView reloadData];
     
     //self.statusLabel.text = @"Yes";

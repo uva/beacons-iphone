@@ -297,7 +297,7 @@
 				TargetAttributes = {
 					D499C12E19E08D6500FAB1A2 = {
 						CreatedOnToolsVersion = 6.0;
-						DevelopmentTeam = CQ74745625;
+						DevelopmentTeam = DV6MACWMG2;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -306,11 +306,12 @@
 					};
 					D499C14719E08D6500FAB1A2 = {
 						CreatedOnToolsVersion = 6.0;
+						DevelopmentTeam = DV6MACWMG2;
 						TestTargetID = D499C12E19E08D6500FAB1A2;
 					};
 				};
 			};
-			buildConfigurationList = D499C12A19E08D6500FAB1A2 /* Build configuration list for PBXProject "beacon" */;
+			buildConfigurationList = D499C12A19E08D6500FAB1A2 /* Build configuration list for PBXProject "Beacon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -555,7 +556,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D499C12A19E08D6500FAB1A2 /* Build configuration list for PBXProject "beacon" */ = {
+		D499C12A19E08D6500FAB1A2 /* Build configuration list for PBXProject "Beacon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D499C15019E08D6500FAB1A2 /* Debug */,
